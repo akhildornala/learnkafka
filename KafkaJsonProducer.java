@@ -1,6 +1,5 @@
 package com.deloitte.kafka.learnkafka.producer;
 
-
 import static org.apache.kafka.clients.producer.ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG;
 
@@ -17,14 +16,15 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.util.SerializationUtils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
 public class KafkaJsonProducer {
 
-	public static String TOPIC = "testtopic3";
+	public static String TOPIC = "wellsjsontopic";
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
 	public static void main(String args[]) throws Exception {
@@ -38,11 +38,13 @@ public class KafkaJsonProducer {
 		KafkaProducer<String, byte[]> producer = new KafkaProducer<String, byte[]>(props, new StringSerializer(),
 				new ByteArraySerializer());
 
-		Employee emp = new Employee(1, "akhil", "CLOUDENG");
+		Employee emp = new Employee(1, "akhildornala", "CLOUDENG");
 
-	      byte[] payload = SerializationUtils.serialize(emp);
-		
-		ProducerRecord<String, byte[]> record = new ProducerRecord<String, byte[]>(props.getProperty("kafka.topic.name"), payload);
+		final ObjectMapper objectMapper = new ObjectMapper();
+		byte[] payload = objectMapper.writeValueAsBytes(emp);
+
+		ProducerRecord<String, byte[]> record = new ProducerRecord<String, byte[]>(
+				props.getProperty("kafka.topic.name"), payload);
 		producer.send(record);
 		System.out.print("going to stop producer");
 		producer.close();
@@ -50,4 +52,3 @@ public class KafkaJsonProducer {
 	}
 
 }
-
