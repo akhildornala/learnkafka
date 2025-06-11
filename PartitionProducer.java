@@ -34,7 +34,6 @@ public class PartitionProducer {
 
 		props.put(KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 		props.put(VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
-
 		// Key as string, value as string
 		Producer<String, String> producer = new KafkaProducer<>(props);
 		List<String> messages = getMessages();
