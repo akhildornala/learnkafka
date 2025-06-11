@@ -32,7 +32,6 @@ public class PartitionProducer {
 
 		props.put(BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
 
-
 		props.put(KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 		props.put(VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 
