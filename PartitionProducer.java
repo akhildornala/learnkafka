@@ -45,6 +45,7 @@ public class PartitionProducer {
 			}
 		}
 
+		
 		producer.close();
 
 	}
