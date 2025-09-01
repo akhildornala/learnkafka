@@ -39,7 +39,7 @@ public class KafkaJsonProducer {
 				new ByteArraySerializer());
 
 
-		
+	
 		Employee emp = new Employee(1, "akhildornala", "CLOUDENG");
 
 		final ObjectMapper objectMapper = new ObjectMapper();
@@ -54,5 +54,6 @@ public class KafkaJsonProducer {
 	}
 
 }
+
 
 
