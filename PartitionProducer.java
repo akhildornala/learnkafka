@@ -24,7 +24,6 @@ public class PartitionProducer {
 	public static String BOOTSTRAP_SERVERS = "localhost:9092";
 
 	public static String TOPIC = "testtopic9";
-
 	
 	public static void main(String[] args) throws Exception {
 		System.out.println("Welcome to producer");
@@ -66,6 +65,7 @@ public class PartitionProducer {
 		return messages;
 	}
 }
+
 
 
 
