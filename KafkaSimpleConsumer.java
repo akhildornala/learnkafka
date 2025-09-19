@@ -12,7 +12,6 @@ public class KafkaSimpleConsumer {
 	
 
 
-
 	static String TOPIC = "testtopic13";
 	static String GROUP = "group1";
 
