@@ -11,6 +11,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 public class KafkaSimpleConsumer {
 	
 
+	
 	static String TOPIC = "testtopic13";
 	static String GROUP = "group1";
 
@@ -50,4 +51,5 @@ public class KafkaSimpleConsumer {
 	}
 
 }
+
 
